@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data!</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<script src="https://d3js.org/d3.v5.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function(e) {
+
+        //just data i guess
+        let myData = ["Hello World!", "Hello D3", "Hello JavaScript"];
+
+        let p = d3.select("body")
+            .selectAll("p")
+            .data(myData)
+            .text(function (d, i) {
+                return d;
+            });
+
+        //data in spans
+        let data = [4, 1, 6, 2, 8, 9];
+        let body = d3.select("body")
+            .selectAll("span")
+            .data(data)
+            .enter().append("span")
+            .style('color', function(d) {
+                if (d % 2 === 0) {
+                    return "green";
+                } else {
+                    return "red";
+                }
+            })
+            .text(function(d) { return d + " "; });
+
+
+        //data w table
+        let matrix = [
+            [1, 2, 3, 4],
+            [5, 6, 7, 8],
+            [9, 10, 11, 12],
+            [13, 14, 15, 16]
+        ];
+
+        let tr = d3.select("body")
+            .append("table")  // adds <table>
+            .selectAll("tr")  // selects all <tr>
+            .data(matrix)      // joins matrix array
+            .enter()           // create placeholders for each row in the array
+            .append("tr");// create <tr> in each placeholder
+
+        let td = tr.selectAll("td")
+            .data(function (d) {    // joins inner array of each row
+                console.log(d);
+                return d;
+            })
+            .enter()    // create placeholders for each element in an inner array
+            .append("td") // creates <td> in each placeholder
+            .text(function (d) {
+                console.log(d);
+                return d; // add value of each inner array as a text in <td>
+            });
+
+        //datum, uh, static data
+        d3.select("body")
+            .select("h3")
+            .datum(100)
+            .text(function (d, i) {
+                return d;
+            });
+    })
+
+</script>
+<body>
+    <p> </p>
+    <p> </p>
+    <p> </p>
+<h3>Hola</h3>
+</body>
+</html>

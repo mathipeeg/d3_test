@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File!</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<script src="https://d3js.org/d3.v5.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function(e) {
+    // d3.csv("/data_new.csv", function (data) {
+    //     for (let i = 0; i < data.length; i++) {
+    //         console.log("test")
+    //         console.log(data)
+    //         console.log(data[i].temperature);
+    //         console.log(data[i].pressure);
+    //     }
+    // })
+
+    // d3.csv("/data_new.csv", function(data) {
+    //     console.log(data);
+    //     // for (let i = 0; i < data.length; i++) {
+    //     //     console.log(data[i])
+    //     // }
+    //     // console.log(data.pressure)
+    // });
+
+    d3.json("/data_json_test.json", function(data) {
+        console.log(data);
+    });
+})
+</script>
+<body>
+
+</body>
+</html>
